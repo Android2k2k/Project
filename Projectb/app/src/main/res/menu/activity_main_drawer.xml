@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:id="@+id/grp0"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_requests"
+            android:title="Requests" />
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/nav_raisedrequests"
+            android:title="Raised Requests" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_local_hospital_24"
+            android:title="Nearest Blood Banks" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_baseline_local_hospital_24"
+            android:title="Nearest Hospitals" />
+    </group>
+
+    <item android:title="Contact Us" >
+        <menu>
+            <item
+                android:id="@+id/nav_aboutus"
+                android:title="About us" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:title="Feedback" />
+        </menu>
+    </item>
+    <group android:id="@+id/grp2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout" />
+    </group>
+</menu>

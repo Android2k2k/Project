@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_profile">
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.bloodproject.fragments.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_requests"
+        android:name="com.example.bloodproject.fragments.RequestsFragment"
+        android:label="@string/menu_requests"
+        tools:layout="@layout/fragment_requests" />
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.bloodproject.fragments.DashboardFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/nav_raisedrequests"
+        android:name="com.example.bloodproject.fragments.RaisedrequestsFragment"
+        android:label="@string/menu_raisedrequests"
+        tools:layout="@layout/fragment_raisedrequests" />
+
+    <fragment
+        android:id="@+id/nav_nearestbloodbanks"
+        android:name="com.example.bloodproject.fragments.NearestbloodbanksFragment"
+        android:label="@string/menu_nearestbloodbanks"
+        tools:layout="@layout/fragment_nearestbloodbanks" />
+    <fragment
+        android:id="@+id/nav_nearesthospitals"
+        android:name="com.example.bloodproject.fragments.NearesthospitalsFragment"
+        android:label="@string/menu_nearesthospitals"
+        tools:layout="@layout/fragment_nearesthospitals" />
+
+    <fragment
+        android:id="@+id/nav_aboutus"
+        android:name="com.example.bloodproject.fragments.AboutusFragment"
+        android:label="@string/menu_aboutus"
+        tools:layout="@layout/fragment_aboutus" />
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.example.bloodproject.fragments.FeedbackFragment"
+        android:label="@string/menu_feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.bloodproject.fragments.LogoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout" />
+
+
+</navigation>
