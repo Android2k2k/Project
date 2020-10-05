@@ -7,20 +7,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".HomeActivity"
-    android:padding="15sp"
+    android:background="@drawable/background_img"
+    android:padding="25dp"
     >
 
     <Button
         android:id="@+id/donar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F44336"
         android:onClick="donar"
         android:padding="20sp"
         android:text="Donar"
-        android:textColor="#F1EEEE"
+        android:background="@drawable/custom_button1"
+        android:textColor="#F44336"
         android:layout_marginTop="250sp"
         android:textSize="20sp"
+
          />
 
     <Button
@@ -28,11 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
-        android:background="#F44336"
+        android:background="@drawable/custom_button1"
         android:onClick="receiver"
         android:padding="20sp"
         android:text="Receiver"
-        android:textColor="#F8F1F1"
+        android:textColor="#F44336"
         android:textSize="20sp"
         />
 

@@ -33,9 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etPass;
     LinearLayout linearLayout;
     Spinner spinner;
-    Button button;
-    DatePickerDialog.OnDateSetListener setListener;
     FirebaseAuth auth;
+    EditText date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +47,15 @@ public class RegisterActivity extends AppCompatActivity {
         etMobile = findViewById(R.id.mobile);
         etAge = findViewById(R.id.age);
         etPass = findViewById(R.id.pass);
+        etDate = findViewById(R.id.date);
 
         radiog = findViewById(R.id.rg1);
         radiob1 = findViewById(R.id.rb1);
         radiob2 = findViewById(R.id.rb2);
-        etDate = findViewById(R.id.et_date);
         linearLayout = findViewById(R.id.linear1);
         spinner = findViewById(R.id.spinner1);
         auth = FirebaseAuth.getInstance();
+        DatePickerDialog datePickerDialog;
 
         //Spinner for Blood Group
         final ArrayList<String> type = new ArrayList<>();
@@ -148,4 +148,5 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
     }
+
 }

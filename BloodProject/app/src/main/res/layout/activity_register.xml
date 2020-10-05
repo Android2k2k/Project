@@ -3,28 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_img1"
+    android:padding="20sp"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
         android:id="@+id/linear1"
-        tools:context=".RegisterActivity">
+        tools:context=".RegisterActivity"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="REGISTER"
+            android:textColor="#EDE7E7"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/fname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="FirstName" />
+            android:hint="Enter your FirstName"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lname"
-            android:hint="LastName"
+            android:hint="Enter your LastName"
             android:layout_marginTop="15dp"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
             />
 
         <EditText
@@ -32,33 +56,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Email" />
+            android:hint="Enter your Email id"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"/>
 
         <EditText
             android:id="@+id/mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Mobile Number" />
+            android:hint="Enter your Mobile Number"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"/>
 
         <EditText
             android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Age" />
-
+            android:hint="Enter your Age"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"/>
         <EditText
-            android:id="@+id/et_date"
+            android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date Of Birth" />
+            android:layout_marginTop="15dp"
+            android:hint="Date of birth"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            android:layout_marginBottom="15dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select your Gender"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rg1"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             >
             <RadioButton
                 android:layout_width="match_parent"
@@ -70,29 +122,49 @@
                 android:id="@+id/rb2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Female" />
+                android:text="Female"></RadioButton>
         </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="Select your blood group"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner1"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
 
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/pass"
-            android:hint="password"
+            android:hint="Enter your password"
             android:inputType="textPassword"
-            android:layout_marginTop="15dp"/>
+            android:textColor="#F44336"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:onClick="register"
-            android:text="Register" />
+            android:text="Register Here"
+            android:textColor="#F8F5F5"
+            android:padding="17sp"
+            android:textSize="20sp"
+            android:background="@drawable/custom_button"
+            />
 
 
     </LinearLayout>

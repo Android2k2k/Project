@@ -5,34 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:layout_gravity="center"
+    android:background="@drawable/background_img1"
+    android:gravity="center"
+    android:padding="20dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="50sp"
-        android:paddingBottom="50sp"
+        android:paddingBottom="20sp"
         android:gravity="center"
         android:text="LOGIN"
-        android:textColor="#3018c9"
+        android:textColor="#EDE7E7"
         android:textSize="50sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="15sp"
         android:inputType="textEmailAddress"
-        android:hint="email" />
+        android:hint="Enter your email id"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:drawableStart="@drawable/ic_baseline_focus"
+        android:drawablePadding="12dp"
+        android:background="@drawable/custom_input"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="pass"
+        android:layout_height="60dp"
+        android:hint="Enter your password"
         android:layout_marginTop="15sp"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:drawableStart="@drawable/ic_baseline_lock_24_focus"
+        android:drawablePadding="12dp"
+        android:background="@drawable/custom_input"
+        />
 
     <Button
         android:id="@+id/login"
@@ -40,21 +54,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
         android:onClick="login"
-        android:padding="20sp"
+        android:padding="17sp"
         android:textSize="20sp"
-        android:textColor="#3018c9"
+        android:textColor="#F8F5F5"
         android:text="login"
+        android:background="@drawable/custom_button"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="100sp"
-        android:paddingBottom="20sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:paddingLeft="150sp"
         android:gravity="center"
-        android:text="Not have an account?"
+        android:text="Forgot password?"
         android:textSize="20sp"
         android:onClick="reset"
+
         />
 
 
@@ -63,10 +80,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
-        android:padding="20sp"
+        android:padding="17sp"
         android:textSize="20sp"
-        android:text="click here"
+        android:textColor="#F8F5F5"
+        android:text="Sign up here"
         android:onClick="clickhere"
+        android:background="@drawable/custom_button"
         />
 
 </LinearLayout>

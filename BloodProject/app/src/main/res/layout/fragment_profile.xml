@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     android:orientation="vertical"
+    android:background="@drawable/background_img1"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,12 +15,22 @@
         android:id="@+id/linear1"
         tools:context=".MainActivity">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20sp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="PROFILE"
+            android:textColor="#EDE7E7"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
         <ImageView
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:src="@drawable/ic_baseline_person_pin_24"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
             />
 
         <EditText
@@ -30,6 +41,11 @@
             android:id="@+id/name"
             android:textSize="20sp"
             android:layout_marginTop="15dp"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
             />
         <EditText
             android:layout_width="match_parent"
@@ -38,13 +54,23 @@
             android:gravity="center"
             android:id="@+id/number"
             android:textSize="20sp"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+            android:textColor="#F44336"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Pincode"
             android:gravity="center"
             android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
             android:textSize="20sp"/>
         <EditText
             android:layout_width="match_parent"
@@ -52,6 +78,11 @@
             android:hint="Email Id"
             android:gravity="center"
             android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+
             android:textSize="20sp"/>
         <EditText
             android:layout_width="match_parent"
@@ -59,7 +90,12 @@
             android:hint="Age"
             android:gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="20sp"/>
+            android:textColor="#F44336"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +124,12 @@
             android:hint="Unique Id"
             android:textSize="20sp"
             android:gravity="center"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,15 +138,24 @@
             android:layout_marginTop="15dp"
             android:layout_gravity="center"
             android:textSize="20sp"
-            android:hint="Address"/>
+            android:hint="Address"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+           />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please give your rating"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"/>
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:id="@+id/rating"/>
-
-
-
     </LinearLayout>
 </ScrollView>
