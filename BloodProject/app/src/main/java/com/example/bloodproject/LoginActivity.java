@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
     GoogleSignInClient client;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
