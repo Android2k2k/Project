@@ -47,11 +47,11 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(com.example.rakthadaan.LoginActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(com.example.rakthadaan.LoginActivity.this, NavigationActivity.class));
+                        Toast.makeText(LoginActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(com.example.rakthadaan.LoginActivity.this, "Failed to login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Failed to login", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void clickhere(View view) {
 
-        startActivity(new Intent(com.example.rakthadaan.LoginActivity.this,RegisterActivity.class));
+        startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
     }
 
     public void reset(View view) {
@@ -80,15 +80,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(final DialogInterface dialogInterface, int i) {
                 String mail = email.getText().toString();
-                auth.sendPasswordResetEmail(mail).addOnCompleteListener(com.example.rakthadaan.LoginActivity.this, new OnCompleteListener<Void>() {
+                auth.sendPasswordResetEmail(mail).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(com.example.rakthadaan.LoginActivity.this, "Reset email sent", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Reset email sent", Toast.LENGTH_SHORT).show();
                             dialogInterface.dismiss();
                         }
                         else{
-                            Toast.makeText(com.example.rakthadaan.LoginActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -18,8 +18,8 @@
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/Theme.Rakthadaan.NoActionBar"></activity>
-        <activity android:name=".MainScreenActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Slider" />
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

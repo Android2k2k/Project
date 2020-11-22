@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(com.example.rakthadaan.RegisterActivity.this, " ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, " ", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        com.example.rakthadaan.RegisterActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        RegisterActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -156,12 +156,12 @@ public class RegisterActivity extends AppCompatActivity {
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
 
                         databaseReference.child(uid).setValue(myModel);
-                        Toast.makeText(com.example.rakthadaan.RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(com.example.rakthadaan.RegisterActivity.this,NavigationActivity.class));
+                        Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                         finish();
                     }
                     else{
-                        Toast.makeText(com.example.rakthadaan.RegisterActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
