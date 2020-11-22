@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "283771350021",
+    "firebase_url": "https://rakthadaan-87983.firebaseio.com",
+    "project_id": "rakthadaan-87983",
+    "storage_bucket": "rakthadaan-87983.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283771350021:android:ca11b88b7eb948b098406c",
+        "android_client_info": {
+          "package_name": "com.example.rakthadaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283771350021-m16drqmtb7ksscagdu6hjef04pjdc8vp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rakthadaan",
+            "certificate_hash": "0c7ea9133bdd7b31099f25ebb7dc09aeedcbf3ae"
+          }
+        },
+        {
+          "client_id": "283771350021-c4ac4d3tugtc9fklh69vgnrin0e6o582.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfJ8hC83JQ8WZ4Axvpmu919CNFVmeklZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283771350021-c4ac4d3tugtc9fklh69vgnrin0e6o582.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
