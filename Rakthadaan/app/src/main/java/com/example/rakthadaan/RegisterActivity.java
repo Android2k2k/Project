@@ -157,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         databaseReference.child(uid).setValue(myModel);
                         Toast.makeText(com.example.rakthadaan.RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(com.example.rakthadaan.RegisterActivity.this,NavigationActivity.class));
+                        startActivity(new Intent(com.example.rakthadaan.RegisterActivity.this,LoginActivity.class));
                         finish();
                     }
                     else{
