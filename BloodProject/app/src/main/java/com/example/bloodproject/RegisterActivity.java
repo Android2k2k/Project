@@ -22,25 +22,30 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity {
-    RadioGroup radiog;
-    RadioButton radiob1,radiob2;
+    Random random = new Random();
+    Calendar calendar;
+    String date;
+    RadioGroup rg;
+    RadioButton rb;
     EditText etFname,etLname,etEmail,etMobile,etAge,etDate;
     EditText etPass;
     LinearLayout linearLayout;
     Spinner spinner;
     FirebaseAuth auth;
-    EditText date;
-
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        databaseReference = FirebaseDatabase.getInstance().getReference("Profile");
         etFname = findViewById(R.id.fname);
         etLname = findViewById(R.id.lname);
         etEmail = findViewById(R.id.email);
@@ -49,9 +54,8 @@ public class RegisterActivity extends AppCompatActivity {
         etPass = findViewById(R.id.pass);
         etDate = findViewById(R.id.date);
 
-        radiog = findViewById(R.id.rg1);
-        radiob1 = findViewById(R.id.rb1);
-        radiob2 = findViewById(R.id.rb2);
+        rg = findViewById(R.id.rg1);
+        rb = findViewById(R.id.rb1);
         linearLayout = findViewById(R.id.linear1);
         spinner = findViewById(R.id.spinner1);
         auth = FirebaseAuth.getInstance();
@@ -73,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(RegisterActivity.this, "You Selected"+type.get(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, " ", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -83,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         //DateOfBirth
-        Calendar calendar = Calendar.getInstance();
+        calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -92,11 +96,12 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        RegisterActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        RegisterActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month =month+1;
-                        String date = day+"/"+month+"/"+year;
+                        date = day+"/"+month+"/"+year;/**/
                         etDate.setText(date);
                     }
                 },year,month,day);
@@ -106,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         //Gender
-        radiog.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*radiog.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 switch (checkedId) {
@@ -119,12 +124,20 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        };*/
     }
 
     public void register(View view) {
-        String umail = etEmail.getText().toString();
-        String upass = etPass.getText().toString();
+        final String umail = etEmail.getText().toString();
+        final String upass = etPass.getText().toString();
+        final String fname = etFname.getText().toString();
+        final String lname = etLname.getText().toString();
+        final String mobile = etMobile.getText().toString();
+        final String bloodgroup = spinner.getSelectedItem().toString();
+        final String age = etAge.getText().toString();
+        final String image = "https://www.vhv.rs/dpng/d/433-4336634_thumb-image-android-user-icon-png-transparent-png.png";
+        final String address = "no address added";
+        final String rating = "no rating";
         if(umail.isEmpty() | upass.isEmpty()){
             Toast.makeText(this, "Fill all the details", Toast.LENGTH_SHORT).show();
         }
@@ -136,6 +149,14 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        int id = rg.getCheckedRadioButtonId();
+                        rb = findViewById(id);
+                        String gender = rb.getText().toString();
+                        MyModel myModel = new MyModel(fname,lname,umail,mobile,age,date,gender,bloodgroup,image,address,rating);
+                        //year+fnamefirstletterand lastletter+random(5digits)
+                        String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
+
+                        databaseReference.child(uid).setValue(myModel);
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this,NavigationActivity.class));
                         finish();
