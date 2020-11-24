@@ -21,19 +21,19 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
 
     EditText email, password;
-    TextView register;
     FirebaseAuth auth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         auth = FirebaseAuth.getInstance();
-
+        if (auth.getCurrentUser()!=null){
+            startActivity(new Intent(this,RetrivalActivity.class));
+            finish();
+        }
     }
 
 

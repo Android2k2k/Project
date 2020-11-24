@@ -25,12 +25,12 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HoldView> {
-    RecyclerView rv;
-    MyAdapter adapter;
     Context ct;
     ArrayList<Pojo> list;
 
     public MyAdapter(ArrayList<Pojo> list, RetrivalActivity retrivalActivity) {
+        ct = retrivalActivity;
+        this.list = list;
     }
 
     @NonNull

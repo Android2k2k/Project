@@ -24,15 +24,12 @@ import java.util.ArrayList;
 public class RetrivalActivity extends AppCompatActivity {
 
     ActivityRetrivalBinding binding;
-    RecyclerView rv;
     ArrayList<Pojo> list;
     DatabaseReference reference;
-    Pojo pojo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_retrival);
-        rv = findViewById(R.id.rv);
         list = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Data");
         reference.addValueEventListener(new ValueEventListener() {
@@ -42,17 +39,18 @@ public class RetrivalActivity extends AppCompatActivity {
                     Pojo pojo = dataSnapshot.getValue(Pojo.class);
                     list.add(pojo);
                 }
+                MyAdapter adapter = new MyAdapter(list, RetrivalActivity.this);
+                binding.rv.setAdapter(adapter);
+                binding.rv.setLayoutManager(new LinearLayoutManager(RetrivalActivity.this));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(RetrivalActivity.this, "Failed",
+                        Toast.LENGTH_SHORT).show();
             }
         });
-        pojo = new Pojo("ilink","dname","pcode","bgroup");
-        MyAdapter adapter = new MyAdapter(list, this);
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+
 
 
     }
