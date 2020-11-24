@@ -7,7 +7,7 @@
     app:cardCornerRadius="15dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-    app:cardBackgroundColor="#E91E63"
+    app:cardBackgroundColor="#A1FD3333"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:orientation="horizontal"
@@ -16,11 +16,11 @@
         android:padding="6dp"
         android:weightSum="5">
 
-        <CircleImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="0.5"
-            android:src="@drawable/ic_person"
+            android:src="@drawable/avatar1"
             android:id="@+id/civ"/>
 
         <LinearLayout
@@ -34,13 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="First Name"
-                android:id="@+id/fn"
+                android:id="@+id/dn"
                 android:textSize="24sp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Blood Group"
-                android:id="@+id/bg"
+                android:text="Pin Code"
+                android:id="@+id/pc"
                 android:textSize="24sp"/>
         </LinearLayout>
     </LinearLayout>
