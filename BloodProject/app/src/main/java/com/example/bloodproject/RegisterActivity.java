@@ -110,21 +110,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        //Gender
-        /*radiog.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb1:
-                        Toast.makeText(RegisterActivity.this, "Male", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.rb2:
-                        Toast.makeText(RegisterActivity.this, "Female", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-
-            }
-        };*/
     }
 
     public void register(View view) {
