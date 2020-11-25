@@ -156,8 +156,13 @@ public class RegisterActivity extends AppCompatActivity {
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
 
                         databaseReference.child(uid).setValue(myModel);
+<<<<<<< HEAD
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+=======
+                        Toast.makeText(com.example.rakthadaan.RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(com.example.rakthadaan.RegisterActivity.this,LoginActivity.class));
+>>>>>>> d99cb70bffd4db12fdd1530906d349f3396788b3
                         finish();
                     }
                     else{
