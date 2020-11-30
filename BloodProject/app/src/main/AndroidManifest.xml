@@ -13,11 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PhoneAuthActivity"></activity>
+        <activity android:name=".ReceiverScheduleActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_map_key"/>
-        <activity android:name=".NearestHospitalsActivity"></activity>
+            android:value="@string/google_map_key" />
+
+        <activity android:name=".NearestHospitalsActivity" />
         <activity android:name=".RetrivalActivity" />
         <activity android:name=".DisplayActivity" />
         <activity android:name=".LoginActivity" />

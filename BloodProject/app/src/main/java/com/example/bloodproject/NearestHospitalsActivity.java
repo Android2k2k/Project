@@ -59,6 +59,7 @@ public class NearestHospitalsActivity extends AppCompatActivity {
         spType.setAdapter(new ArrayAdapter<>(NearestHospitalsActivity.this, android.R.layout.simple_spinner_dropdown_item, placeNameList));
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
+
         if (ActivityCompat.checkSelfPermission(NearestHospitalsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();

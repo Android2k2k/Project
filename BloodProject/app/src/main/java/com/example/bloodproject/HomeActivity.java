@@ -15,7 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void receiver(View view) {
-        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+        startActivity(new Intent(HomeActivity.this, ReceiverScheduleActivity.class));
     }
 
     public void donar(View view) {

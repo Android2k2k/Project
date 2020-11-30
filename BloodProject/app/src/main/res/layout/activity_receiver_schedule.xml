@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ReceiverScheduleActivity">
+
+    <Button
+        android:id="@+id/urgent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="urgent"
+        android:padding="20sp"
+        android:text="Urgent"
+        android:background="@drawable/custom_button1"
+        android:textColor="#F44336"
+        android:layout_marginTop="250sp"
+        android:textSize="20sp"
+
+        />
+
+    <Button
+        android:id="@+id/scheduled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/custom_button1"
+        android:onClick="scheduled"
+        android:padding="20sp"
+        android:text="scheduled"
+        android:textColor="#F44336"
+        android:textSize="20sp"
+        />
+
+</LinearLayout>
