@@ -1,7 +1,12 @@
 package com.example.rakthadaan;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner spinner;
     FirebaseAuth auth;
     DatabaseReference databaseReference;
+ //   LocationManager manager;
+   // double lat, lon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +66,21 @@ public class RegisterActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.linear1);
         spinner = findViewById(R.id.spinner1);
         auth = FirebaseAuth.getInstance();
-        DatePickerDialog datePickerDialog;
+       /* manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        LocationListener listener = new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+            lat = location.getLatitude();
+            lon = location.getLongitude();
+            }
+        };
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
+            return;
+        }
+        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 1, listener);
+        manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, listener);
+*/
         //Spinner for Blood Group
         final ArrayList<String> type = new ArrayList<>();
         type.add("A+");
@@ -108,22 +129,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-
-        //Gender
-        /*radiog.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb1:
-                        Toast.makeText(RegisterActivity.this, "Male", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.rb2:
-                        Toast.makeText(RegisterActivity.this, "Female", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-
-            }
-        };*/
     }
 
     public void register(View view) {
@@ -135,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String bloodgroup = spinner.getSelectedItem().toString();
         final String age = etAge.getText().toString();
         final String image = "https://www.vhv.rs/dpng/d/433-4336634_thumb-image-android-user-icon-png-transparent-png.png";
-        final String address = "no address added";
+        final String address = "No Address";
         final String rating = "no rating";
         if(umail.isEmpty() | upass.isEmpty()){
             Toast.makeText(this, "Fill all the details", Toast.LENGTH_SHORT).show();
@@ -156,13 +161,10 @@ public class RegisterActivity extends AppCompatActivity {
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
 
                         databaseReference.child(uid).setValue(myModel);
-<<<<<<< HEAD
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-=======
                         Toast.makeText(com.example.rakthadaan.RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(com.example.rakthadaan.RegisterActivity.this,LoginActivity.class));
->>>>>>> d99cb70bffd4db12fdd1530906d349f3396788b3
                         finish();
                     }
                     else{

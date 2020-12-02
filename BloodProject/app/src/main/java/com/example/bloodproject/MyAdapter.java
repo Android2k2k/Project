@@ -72,10 +72,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HoldView> {
             intent.putExtra("dname",list.get(i).dname);
             intent.putExtra("pcode",list.get(i).pcode);
             intent.putExtra("ilink",list.get(i).ilink);
-            startActivity(intent);
+            ct.startActivity(intent);
         }
     }
 
-    private void startActivity(Intent intent) {
-    }
+
 }
