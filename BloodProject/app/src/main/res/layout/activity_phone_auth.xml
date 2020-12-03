@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
+    android:background="@drawable/background_img1"
     android:gravity="center"
     tools:context=".PhoneAuthActivity">
 
@@ -14,30 +15,55 @@
         android:layout_height="wrap_content"
         android:hint="Number"
         android:id="@+id/number"
-        android:inputType="phone"/>
+        android:inputType="phone"
+        android:textColor="#F44336"
+        android:padding="10dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/custom_input"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="send otp"
         android:onClick="send"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:textColor="#F8F5F5"
+        android:padding="12sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_button"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Otp"
+        android:hint="OTP"
         android:id="@+id/otp"
-        android:inputType="phone"/>
+        android:inputType="phone"
+        android:textColor="#F44336"
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/custom_input"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="verify"
         android:onClick="verify"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:textColor="#F8F5F5"
+        android:padding="12sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_button"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resend"
         android:onClick="resend"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:textColor="#F8F5F5"
+        android:padding="12sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_button"
+        />
 
 </LinearLayout>
