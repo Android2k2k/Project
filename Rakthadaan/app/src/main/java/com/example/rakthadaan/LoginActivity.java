@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.rakthadaan.fragments.ProfileFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,8 +48,8 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
+                        Toast.makeText(LoginActivity.this, "Logged Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, ProfileFragment.class));
                         finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "Failed to login", Toast.LENGTH_SHORT).show();

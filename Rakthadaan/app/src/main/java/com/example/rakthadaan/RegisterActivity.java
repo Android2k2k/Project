@@ -1,12 +1,11 @@
 package com.example.rakthadaan;
 
-import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,20 +20,32 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+import androidx.databinding.DataBindingUtil;
 
+import com.example.rakthadaan.databinding.ActivityRegisterBinding;
+import com.example.rakthadaan.fragments.ProfileFragment;
+import com.example.rakthadaan.fragments.RequestsFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.UUID;
 
 public class RegisterActivity extends AppCompatActivity {
+    ActivityRegisterBinding binding;
+    DatabaseReference databaseReference;
+//    StorageReference sRef;
+//    Uri uri;
+//    ProgressDialog dialog;
+    SharedPreferences preferences;
     Random random = new Random();
     Calendar calendar;
     String date;
@@ -45,14 +56,18 @@ public class RegisterActivity extends AppCompatActivity {
     LinearLayout linearLayout;
     Spinner spinner;
     FirebaseAuth auth;
-    DatabaseReference databaseReference;
- //   LocationManager manager;
-   // double lat, lon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+//        setContentView(R.layout.activity_register);
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_register);
+        preferences = getSharedPreferences("Data",MODE_PRIVATE);
+//        sRef = FirebaseStorage.getInstance().getReference().child(UUID.randomUUID().toString());
         databaseReference = FirebaseDatabase.getInstance().getReference("Profile");
+//        dialog = new ProgressDialog(this);
+//        dialog.setMessage("Uploading.....");
+//        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        binding.
         etFname = findViewById(R.id.fname);
         etLname = findViewById(R.id.lname);
         etEmail = findViewById(R.id.email);
@@ -66,21 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.linear1);
         spinner = findViewById(R.id.spinner1);
         auth = FirebaseAuth.getInstance();
-       /* manager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        LocationListener listener = new LocationListener() {
-            @Override
-            public void onLocationChanged(@NonNull Location location) {
-            lat = location.getLatitude();
-            lon = location.getLongitude();
-            }
-        };
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-            return;
-        }
-        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 1, listener);
-        manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1, 1, listener);
-*/
         //Spinner for Blood Group
         final ArrayList<String> type = new ArrayList<>();
         type.add("A+");
@@ -132,16 +133,16 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        final String umail = etEmail.getText().toString();
-        final String upass = etPass.getText().toString();
-        final String fname = etFname.getText().toString();
-        final String lname = etLname.getText().toString();
-        final String mobile = etMobile.getText().toString();
-        final String bloodgroup = spinner.getSelectedItem().toString();
-        final String age = etAge.getText().toString();
+        final String umail = binding.email.getText().toString();
+        final String upass = binding.pass.getText().toString();
+        final String fname = binding.fname.getText().toString();
+        final String lname = binding.lname.getText().toString();
+        final String mobile = binding.mobile.getText().toString();
+        final String bloodgroup = binding.spinner1.getSelectedItem().toString();
+        final String age = binding.age.getText().toString();
         final String image = "https://www.vhv.rs/dpng/d/433-4336634_thumb-image-android-user-icon-png-transparent-png.png";
-        final String address = "No Address";
-        final String rating = "no rating";
+        final String address = "no address added";
+        final int rating=0;
         if(umail.isEmpty() | upass.isEmpty()){
             Toast.makeText(this, "Fill all the details", Toast.LENGTH_SHORT).show();
         }
@@ -155,16 +156,19 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         int id = rg.getCheckedRadioButtonId();
                         rb = findViewById(id);
-                        String gender = rb.getText().toString();
+                        String gender;
+                        if (rb.getText().toString() == "Male") {
+                            gender = binding.rb1.getText().toString();
+                        }
+                        else {
+                            gender = binding.rb2.getText().toString();
+                        }
                         MyModel myModel = new MyModel(fname,lname,umail,mobile,age,date,gender,bloodgroup,image,address,rating);
                         //year+fnamefirstletterand lastletter+random(5digits)
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
-
                         databaseReference.child(uid).setValue(myModel);
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                        Toast.makeText(com.example.rakthadaan.RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(com.example.rakthadaan.RegisterActivity.this,LoginActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                         finish();
                     }
                     else{

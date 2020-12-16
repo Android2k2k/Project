@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    android:orientation="vertical"
-    android:background="@drawable/background_img1"
-    >
+    android:padding="15dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,13 +19,12 @@
             android:src="@drawable/ic_baseline_person_pin_24"
             android:layout_gravity="center"
             android:layout_marginTop="20sp"
-            android:id="@+id/iv"
-            />
+            android:id="@+id/iv" />
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:hint="Name"
             android:gravity="center"
             android:id="@+id/name"
             android:textSize="20sp"
@@ -38,24 +34,23 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input" />
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email Id"
+            android:hint="Email Id"
             android:gravity="center"
             android:layout_marginTop="15dp"
-            android:textColor="#F44336"
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input"
             android:id="@+id/email"
             android:textSize="20sp"/>
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:drawableStart="@android:drawable/ic_menu_call"
+            android:hint="Phone Number"
+            android:drawableStart="@android:drawable/stat_sys_vp_phone_call"
             android:gravity="center"
             android:id="@+id/number"
             android:textSize="20sp"
@@ -66,77 +61,37 @@
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input" />
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Age: "
+            android:hint="Age"
             android:id="@+id/age"
             android:gravity="center"
-            android:textColor="#F44336"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/custom_input"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dateofbirth"
-            android:id="@+id/date"
-            android:gravity="center"
             android:layout_marginTop="15dp"
             android:textColor="#F44336"
             android:textSize="20sp"
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:drawableStart="@android:drawable/ic_menu_my_calendar"
             android:background="@drawable/custom_input"/>
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gender : "
-            android:gravity="center"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="250dp"
-            android:id="@+id/gender"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pincode"
+            android:hint="Pincode"
             android:id="@+id/pin"
             android:gravity="center"
-            android:textColor="#F44336"
             android:layout_marginTop="15dp"
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:drawableStart="@android:drawable/ic_menu_mylocation"
             android:background="@drawable/custom_input"
             android:textSize="20sp"/>
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address: "
-            android:id="@+id/address"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"
-            android:paddingStart="12dp"
-            android:textColor="#F44336"
-            android:paddingEnd="12dp"
-            android:background="@drawable/custom_input"
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BloodGroup"
+            android:hint="BloodGroup"
             android:id="@+id/blood"
             android:gravity="center"
-            android:textColor="#F44336"
             android:layout_marginTop="15dp"
             android:padding="10dp"
             android:paddingStart="12dp"
@@ -145,7 +100,6 @@
             android:textSize="20sp"/>
         <TextView
             android:layout_width="match_parent"
-            android:textColor="#F44336"
             android:layout_height="wrap_content"
             android:text="Rating"
             android:gravity="center"
@@ -156,15 +110,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:rating="@integer/google_play_services_version"
             android:id="@+id/rating"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update"
-            android:onClick="update"
-            android:layout_marginTop="15dp"/>
-
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>
 </layout>
