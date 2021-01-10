@@ -1,49 +1,47 @@
-package com.example.rakthadaan.fragments;
+package com.example.rakthadaan;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
 import com.bumptech.glide.Glide;
-import com.example.rakthadaan.MyModel;
-import com.example.rakthadaan.R;
-import com.example.rakthadaan.databinding.FragmentProfileBinding;
+import com.example.rakthadaan.databinding.ActivityProfileBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-import static android.content.Context.MODE_PRIVATE;
-
-public class ProfileFragment extends Fragment {
-    FragmentProfileBinding binding;
+public class ProfileActivity extends AppCompatActivity {
+    ActivityProfileBinding binding;
     DatabaseReference reference;
     SharedPreferences preferences;
+    FirebaseAuth auth;
     MyModel myModel;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_profile,container,false);
-        binding = DataBindingUtil.setContentView(getActivity(),R.layout.fragment_profile);
-        preferences = getContext().getSharedPreferences("Data",MODE_PRIVATE);
-        reference = FirebaseDatabase.getInstance().getReference("Profile");
-        //binding thw profile
-        reference.addValueEventListener(new ValueEventListener() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_profile);
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_profile);
+        auth = FirebaseAuth.getInstance();
+        preferences = getSharedPreferences("Data",MODE_PRIVATE);
+        reference = FirebaseDatabase.getInstance().getReference();
+        Query query = reference.child("Profile").orderByChild("mail").equalTo(auth.getCurrentUser().getEmail());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -57,32 +55,31 @@ public class ProfileFragment extends Fragment {
                     binding.gender.setText(myModel.getGender());
                     binding.rating.setRating(myModel.getRating());
                     binding.blood.setText(myModel.getBloodgroup());
-                    Glide.with(ProfileFragment.this)
+                    Glide.with(ProfileActivity.this)
                             .load(myModel.getImage())
                             .placeholder(R.drawable.ic_launcher_background)
                             .into(binding.iv);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "failed", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(ProfileActivity.this, "failed", Toast.LENGTH_SHORT).show();
             }
         });
-        return v;
     }
     //for updating thw profile
     public void update(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        View v = LayoutInflater.from(getActivity()).inflate(R.layout.update, null, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View v = LayoutInflater.from(this).inflate(R.layout.update, null, false);
 //        final ImageView image = v.findViewById(R.id.iv);
         final EditText name = v.findViewById(R.id.name);
         final EditText email = v.findViewById(R.id.email);
-        final EditText mobile = v.findViewById(R.id.mobile);
+        final EditText mobile = v.findViewById(R.id.number);
         final EditText age = v.findViewById(R.id.age);
         final EditText pin = v.findViewById(R.id.address);
         final EditText rb = v.findViewById(R.id.blood);
-        final EditText rating = v.findViewById(R.id.rating);
+        final RatingBar rating = v.findViewById(R.id.rating);
         builder.setView(v);
         builder.setCancelable(false);
 
@@ -93,7 +90,7 @@ public class ProfileFragment extends Fragment {
         age.setText(myModel.getAge());
         pin.setText(myModel.getAddress());
         rb.setText(myModel.getBloodgroup());
-        rating.setText(myModel.getRating());
+        rating.setRating(myModel.getRating());
 
         builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
@@ -105,7 +102,7 @@ public class ProfileFragment extends Fragment {
                 map.put("age",age.getText().toString());
                 map.put("pin",pin.getText().toString());
                 map.put("rb",rb.getText().toString());
-                map.put("rating",rating.getText().toString());
+                map.put("rating",rating.getRating());
                 reference.child(mobile.getText().toString()).updateChildren(map);
             }
         });

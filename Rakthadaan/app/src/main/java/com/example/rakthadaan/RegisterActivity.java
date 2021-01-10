@@ -1,11 +1,8 @@
 package com.example.rakthadaan;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,21 +20,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.rakthadaan.databinding.ActivityRegisterBinding;
-import com.example.rakthadaan.fragments.ProfileFragment;
-import com.example.rakthadaan.fragments.RequestsFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
-import java.util.UUID;
 
 public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding binding;
@@ -51,9 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     String date;
     RadioGroup rg;
     RadioButton rb;
-    EditText etFname,etLname,etEmail,etMobile,etAge,etDate;
-    EditText etPass;
-    LinearLayout linearLayout;
+    EditText etDate;
     Spinner spinner;
     FirebaseAuth auth;
     @Override
@@ -68,17 +58,15 @@ public class RegisterActivity extends AppCompatActivity {
 //        dialog.setMessage("Uploading.....");
 //        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 //        binding.
-        etFname = findViewById(R.id.fname);
+     /*   etFname = findViewById(R.id.fname);
         etLname = findViewById(R.id.lname);
         etEmail = findViewById(R.id.email);
         etMobile = findViewById(R.id.mobile);
         etAge = findViewById(R.id.age);
         etPass = findViewById(R.id.pass);
-        etDate = findViewById(R.id.date);
+        etDate = findViewById(R.id.date);*/
 
         rg = findViewById(R.id.rg1);
-        rb = findViewById(R.id.rb1);
-        linearLayout = findViewById(R.id.linear1);
         spinner = findViewById(R.id.spinner1);
         auth = FirebaseAuth.getInstance();
 
@@ -156,13 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         int id = rg.getCheckedRadioButtonId();
                         rb = findViewById(id);
-                        String gender;
-                        if (rb.getText().toString() == "Male") {
-                            gender = binding.rb1.getText().toString();
-                        }
-                        else {
-                            gender = binding.rb2.getText().toString();
-                        }
+                        String gender = rb.toString();
                         MyModel myModel = new MyModel(fname,lname,umail,mobile,age,date,gender,bloodgroup,image,address,rating);
                         //year+fnamefirstletterand lastletter+random(5digits)
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
