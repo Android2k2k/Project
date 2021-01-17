@@ -34,10 +34,6 @@ import java.util.Random;
 public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding binding;
     DatabaseReference databaseReference;
-//    StorageReference sRef;
-//    Uri uri;
-//    ProgressDialog dialog;
-    SharedPreferences preferences;
     Random random = new Random();
     Calendar calendar;
     String date;
@@ -49,22 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_register);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_register);
-        preferences = getSharedPreferences("Data",MODE_PRIVATE);
-//        sRef = FirebaseStorage.getInstance().getReference().child(UUID.randomUUID().toString());
         databaseReference = FirebaseDatabase.getInstance().getReference("Profile");
-//        dialog = new ProgressDialog(this);
-//        dialog.setMessage("Uploading.....");
-//        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//        binding.
-     /*   etFname = findViewById(R.id.fname);
-        etLname = findViewById(R.id.lname);
-        etEmail = findViewById(R.id.email);
-        etMobile = findViewById(R.id.mobile);
-        etAge = findViewById(R.id.age);
-        etPass = findViewById(R.id.pass);
-        etDate = findViewById(R.id.date);*/
 
         rg = findViewById(R.id.rg1);
         spinner = findViewById(R.id.spinner1);
@@ -88,7 +70,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(RegisterActivity.this, " ", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -101,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        etDate.setOnClickListener(new View.OnClickListener() {
+        binding.date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -111,11 +92,10 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month =month+1;
                         date = day+"/"+month+"/"+year;/**/
-                        etDate.setText(date);
+                        binding.date.setText(date);
                     }
                 },year,month,day);
                 datePickerDialog.show();
-
             }
         });
     }
@@ -147,7 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
                         String gender = rb.toString();
                         MyModel myModel = new MyModel(fname,lname,umail,mobile,age,date,gender,bloodgroup,image,address,rating);
                         //year+fnamefirstletterand lastletter+random(5digits)
-                        String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(5);
+                        String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(100000);
                         databaseReference.child(uid).setValue(myModel);
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));

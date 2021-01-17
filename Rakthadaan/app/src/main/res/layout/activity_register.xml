@@ -25,11 +25,11 @@
             android:textColor="#EDE7E7"
             android:textSize="40sp"
             android:textStyle="bold" />
-<!--        <ImageView-->
-<!--            android:layout_width="70dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:src="@drawable/ic_launcher_background"-->
-<!--            android:id="@+id/pimg" />-->
+       <!-- <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_launcher_background"
+            android:id="@+id/pimg" />-->
         <EditText
             android:id="@+id/fname"
             android:layout_width="match_parent"

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.rakthadaan.databinding.ActivityProfileBinding;
+import com.example.rakthadaan.databinding.UpdateBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,39 +72,40 @@ public class ProfileActivity extends AppCompatActivity {
     //for updating thw profile
     public void update(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View v = LayoutInflater.from(this).inflate(R.layout.update, null, false);
-//        final ImageView image = v.findViewById(R.id.iv);
-        final EditText name = v.findViewById(R.id.name);
+       // View v = LayoutInflater.from(this).inflate(R.layout.update, null, false);
+        UpdateBinding updateBinding = DataBindingUtil.inflate(LayoutInflater.from(this),R.layout.update,null,false);
+        //final ImageView image = v.findViewById(R.id.iv);
+      /*  final EditText name = v.findViewById(R.id.name);
         final EditText email = v.findViewById(R.id.email);
-        final EditText mobile = v.findViewById(R.id.number);
+        final EditText number = v.findViewById(R.id.number);
         final EditText age = v.findViewById(R.id.age);
-        final EditText pin = v.findViewById(R.id.address);
-        final EditText rb = v.findViewById(R.id.blood);
-        final RatingBar rating = v.findViewById(R.id.rating);
-        builder.setView(v);
+        final EditText pin = v.findViewById(R.id.pin);
+        final EditText blood = v.findViewById(R.id.blood);
+        final RatingBar rating = v.findViewById(R.id.rating);*/
+        builder.setView(updateBinding.getRoot());
         builder.setCancelable(false);
 
         //image pending
-        name.setText(myModel.getFname()+" "+myModel.getLname());
-        email.setText(myModel.getMail());
-        mobile.setText(myModel.getMobile());
-        age.setText(myModel.getAge());
-        pin.setText(myModel.getAddress());
-        rb.setText(myModel.getBloodgroup());
-        rating.setRating(myModel.getRating());
+        updateBinding.name.setText(myModel.getFname()+" "+myModel.getLname());
+        updateBinding.email.setText(myModel.getMail());
+        updateBinding.number.setText(myModel.getMobile());
+        updateBinding.age.setText(myModel.getAge());
+        updateBinding.pin.setText(myModel.getAddress());
+        updateBinding.blood.setText(myModel.getBloodgroup());
+        updateBinding.rating.setRating(myModel.getRating());
 
         builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 HashMap<String,Object> map = new HashMap<>();
-                map.put("name",name.getText().toString());
-                map.put("email",email.getText().toString());
-                map.put("mobile",mobile.getText().toString());
-                map.put("age",age.getText().toString());
-                map.put("pin",pin.getText().toString());
-                map.put("rb",rb.getText().toString());
-                map.put("rating",rating.getRating());
-                reference.child(mobile.getText().toString()).updateChildren(map);
+                map.put("name",updateBinding.name.getText().toString());
+                map.put("email",updateBinding.email.getText().toString());
+                map.put("mobile",updateBinding.number.getText().toString());
+                map.put("age",updateBinding.age.getText().toString());
+                map.put("pin",updateBinding.pin.getText().toString());
+                map.put("rb",updateBinding.blood.getText().toString());
+                map.put("rating",updateBinding.rating.getRating());
+                reference.updateChildren(map);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
