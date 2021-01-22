@@ -1,48 +1,29 @@
 package com.example.bloodproject;
 
 public class Pojo {
-    String ilink,dname,pcode,bgroup;
+    String fname,bloodgroup;
 
     public Pojo() {
     }
 
-
-    public String getIlink() {
-        return ilink;
+    public String getFname() {
+        return fname;
     }
 
-    public void setIlink(String ilink) {
-        this.ilink = ilink;
+    public void setFname(String fname) {
+        this.fname = fname;
     }
 
-    public String getDname() {
-        return dname;
+    public String getBloodgroup() {
+        return bloodgroup;
     }
 
-    public void setDname(String dname) {
-        this.dname = dname;
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
     }
 
-    public String getPcode() {
-        return pcode;
-    }
-
-    public void setPcode(String pcode) {
-        this.pcode = pcode;
-    }
-
-    public String getBgroup() {
-        return bgroup;
-    }
-
-    public void setBgroup(String bgroup) {
-        this.bgroup = bgroup;
-    }
-
-    public Pojo(String ilink, String dname, String pcode, String bgroup) {
-        this.ilink = ilink;
-        this.dname = dname;
-        this.pcode = pcode;
-        this.bgroup = bgroup;
+    public Pojo(String fname, String bloodgroup) {
+        this.fname = fname;
+        this.bloodgroup = bloodgroup;
     }
 }

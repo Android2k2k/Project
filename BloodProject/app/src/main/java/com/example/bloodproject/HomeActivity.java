@@ -18,7 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void receiver(View view) {
-        startActivity(new Intent(HomeActivity.this, ReceiverScheduleActivity.class));
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
     }
 

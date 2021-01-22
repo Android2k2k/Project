@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    android:orientation="vertical"
-    android:background="@drawable/background_img1"
-    >
+    android:padding="15dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/linear1"
-        tools:context=".Splash">
+        tools:context=".fragments.ProfileFragment">
 
         <ImageView
             android:layout_width="100sp"
@@ -21,7 +19,7 @@
             android:src="@drawable/ic_baseline_person_pin_24"
             android:layout_gravity="center"
             android:layout_marginTop="20sp"
-            />
+            android:id="@+id/iv" />
 
         <EditText
             android:layout_width="match_parent"
@@ -35,8 +33,19 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:background="@drawable/custom_input" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Id"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             android:background="@drawable/custom_input"
-            />
+            android:id="@+id/email"
+            android:textSize="20sp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,36 +59,13 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:background="@drawable/custom_input"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pincode"
+            android:background="@drawable/custom_input" />
 
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@drawable/custom_input"
-            android:textSize="20sp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email Id"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@drawable/custom_input"
-
-            android:textSize="20sp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
+            android:id="@+id/age"
             android:gravity="center"
             android:layout_marginTop="15dp"
             android:textColor="#F44336"
@@ -88,59 +74,34 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_marginTop="15dp"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rg1">
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rb1"
-                android:text="Male"/>
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rb2"
-                android:text="Female"/>
-        </RadioGroup>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Unique Id"
-            android:textSize="20sp"
+            android:hint="Pincode"
+            android:id="@+id/pin"
             android:gravity="center"
             android:layout_marginTop="15dp"
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input"
-            />
+            android:textSize="20sp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
+            android:hint="BloodGroup"
+            android:id="@+id/blood"
             android:gravity="center"
             android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:hint="Address"
-            android:drawableStart="@android:drawable/ic_menu_mylocation"
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input"
-           />
+            android:textSize="20sp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Please give your rating"
+            android:text="Rating"
             android:gravity="center"
             android:textSize="20sp"
             android:layout_marginTop="15dp"/>
@@ -150,17 +111,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:id="@+id/rating"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:layout_gravity="center"
-            android:text="save"
-            android:onClick="save"
-            android:padding="17sp"
-            android:textSize="20sp"
-            android:textColor="#F8F5F5"
-            android:backgroundTint="#F30202"
-            />
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>
+</layout>

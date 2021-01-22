@@ -16,13 +16,6 @@
         android:padding="6dp"
         android:weightSum="5">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="0.5"
-            android:src="@drawable/avatar1"
-            android:id="@+id/civ"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,16 +24,17 @@
             android:gravity="center"
             android:orientation="vertical">
             <TextView
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="First Name"
-                android:id="@+id/dn"
+                android:text="Name"
+                android:id="@+id/fname"
                 android:textSize="24sp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pin Code"
-                android:id="@+id/pc"
+                android:text="Blood Group"
+                android:id="@+id/bloodgroup"
                 android:textSize="24sp"/>
         </LinearLayout>
     </LinearLayout>

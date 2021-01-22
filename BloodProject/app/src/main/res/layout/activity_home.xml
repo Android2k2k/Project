@@ -10,20 +10,19 @@
     android:background="@drawable/background_img"
     android:padding="25dp"
     >
-
     <Button
         android:id="@+id/donar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
+        android:layout_marginTop="250sp"
+        android:background="@drawable/custom_button1"
         android:onClick="donar"
         android:padding="20sp"
         android:text="Donar"
-        android:background="@drawable/custom_button1"
         android:textColor="#F44336"
-        android:layout_marginTop="250sp"
         android:textSize="20sp"
 
-         />
+        />
 
     <Button
         android:id="@+id/receiver"

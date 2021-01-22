@@ -42,10 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HoldView> {
 
     @Override
     public void onBindViewHolder(@NonNull HoldView holder, int position) {
-        holder.dname.setText(list.get(position).dname);
-        holder.pcode.setText(list.get(position).pcode);
-        Glide.with(ct).load(list.get(position).ilink)
-                .placeholder(R.drawable.ic_launcher_background).into(holder.civ);
+        holder.fname.setText(list.get(position).fname);
+        holder.bloodgroup.setText(list.get(position).bloodgroup);
+
     }
 
     @Override
@@ -55,13 +54,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HoldView> {
 
     public class HoldView extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        CircleImageView civ;
-        TextView dname,pcode;
+        TextView fname,bloodgroup;
         public HoldView(@NonNull View itemView) {
             super(itemView);
-            civ = itemView.findViewById(R.id.civ);
-            dname = itemView.findViewById(R.id.dn);
-            pcode = itemView.findViewById(R.id.pc);
+            fname = itemView.findViewById(R.id.fname);
+            bloodgroup = itemView.findViewById(R.id.bloodgroup);
             itemView.setOnClickListener(this);
         }
 
@@ -69,9 +66,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HoldView> {
         public void onClick(View view) {
             int i = getAdapterPosition();
             Intent intent = new Intent(ct, DisplayActivity.class);
-            intent.putExtra("dname",list.get(i).dname);
-            intent.putExtra("pcode",list.get(i).pcode);
-            intent.putExtra("ilink",list.get(i).ilink);
+            intent.putExtra("fname",list.get(i).fname);
+            intent.putExtra("bloodgroup",list.get(i).bloodgroup);
             ct.startActivity(intent);
         }
     }

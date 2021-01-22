@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser()!=null){
-            startActivity(new Intent(this,NearestHospitalsActivity.class));
+            startActivity(new Intent(this,NavigationActivity.class));
             finish();
         }
     }
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, NearestHospitalsActivity.class));
+                        startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
                         finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "Failed to login", Toast.LENGTH_SHORT).show();

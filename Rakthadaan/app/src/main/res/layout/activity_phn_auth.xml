@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    tools:context=".PhnAuth"
+    android:background="@drawable/background_img">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login with Mobile"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#F60505"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:hint="Number"
+        android:id="@+id/number"
+        android:inputType="phone"
+        android:drawablePadding="12dp"
+        android:drawableStart="@android:drawable/ic_menu_call"
+        android:background="@drawable/custom_input"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="send otp"
+        android:onClick="send"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="#F30202"
+        android:textSize="15sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:hint="Otp"
+        android:id="@+id/otp"
+        android:inputType="phone"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_baseline_lock_24_focus"
+        android:background="@drawable/custom_input"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="verify"
+        android:onClick="verify"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_button"
+        android:textSize="15sp"
+        android:backgroundTint="#F30202"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resend"
+        android:onClick="resend"
+        android:textSize="15sp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="#F30202"/>
+</LinearLayout>

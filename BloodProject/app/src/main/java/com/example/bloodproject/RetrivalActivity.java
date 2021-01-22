@@ -36,8 +36,7 @@ public class RetrivalActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Pojo pojo;
-                    pojo = dataSnapshot.getValue(Pojo.class);
+                    Pojo pojo = dataSnapshot.getValue(Pojo.class);
                     list.add(pojo);
                 }
                 MyAdapter adapter = new MyAdapter(list, RetrivalActivity.this);
