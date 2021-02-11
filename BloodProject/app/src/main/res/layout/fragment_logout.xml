@@ -4,9 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".fragments.LogoutFragment"
-    android:background="@drawable/background_img">
+    android:background="@drawable/background_img"
+    android:gravity="center">
+
+    <Button
+        android:text="exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="exit"
+        android:textStyle="normal|bold"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="131dp"/>
 
     <TextView
         android:id="@+id/text_logout"

@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
+<<<<<<< HEAD
     app:startDestination="@+id/nav_dashboard">
+=======
+    app:startDestination="@id/nav_dashboard">
+>>>>>>> 60cc58b (icons)
 
     <fragment
         android:id="@+id/nav_profile"

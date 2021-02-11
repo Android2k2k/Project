@@ -79,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
         Animation animation2 = AnimationUtils.loadAnimation(this,
                 R.anim.bottom_wave);
         ivBottom.setAnimation(animation2);
-
-
     }
 
     Runnable runnable = new Runnable() {

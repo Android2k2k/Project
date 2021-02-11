@@ -15,10 +15,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void receiver(View view) {
-        startActivity(new Intent(com.example.rakthadaan.HomeActivity.this, PhnAuth.class));
+        startActivity(new Intent(HomeActivity.this, PhnAuth.class));
     }
 
     public void donar(View view) {
-        startActivity(new Intent(com.example.rakthadaan.HomeActivity.this,LoginActivity.class));
+        startActivity(new Intent(HomeActivity.this,LoginActivity.class));
     }
 }

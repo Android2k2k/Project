@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_img1"
-    android:padding="20sp"
-    >
+    android:padding="20sp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,6 +39,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_action_person"
             android:background="@drawable/custom_input"/>
 
         <EditText
@@ -52,6 +53,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawableStart="@drawable/ic_action_last"
+            android:drawablePadding="10dp"
             android:background="@drawable/custom_input" />
 
         <EditText
@@ -64,6 +67,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="10dp"
             android:background="@drawable/custom_input"/>
 
         <EditText
@@ -76,6 +81,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawableStart="@drawable/ic_action_name"
+            android:drawablePadding="10dp"
             android:background="@drawable/custom_input"/>
 
         <EditText
@@ -88,6 +95,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawableStart="@drawable/age_24px"
+            android:drawablePadding="10dp"
             android:background="@drawable/custom_input"/>
         <EditText
             android:id="@+id/date"
@@ -99,6 +108,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawableStart="@drawable/ic_action_calender"
+            android:drawablePadding="10dp"
             android:background="@drawable/custom_input"
             android:layout_marginBottom="15dp"/>
 
@@ -106,6 +117,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select your Gender"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawableStart="@drawable/gender_32px"
             android:textSize="20sp"
             android:gravity="center"
             />
@@ -120,7 +134,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/rb1"
                 android:text="Male"/>
-
             <RadioButton
                 android:id="@+id/rb2"
                 android:layout_width="match_parent"
@@ -133,6 +146,7 @@
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:gravity="center"
+            android:drawableStart="@drawable/ic_action_blood"
             android:text="Select your blood group"/>
         <Spinner
             android:layout_width="match_parent"
@@ -153,6 +167,8 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
+            android:drawableStart="@drawable/ic_baseline_lock_24_focus"
+            android:drawablePadding="10dp"
             android:background="@drawable/custom_input"/>
         <Button
             android:layout_width="match_parent"

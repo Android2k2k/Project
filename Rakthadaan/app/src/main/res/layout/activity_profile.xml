@@ -7,8 +7,7 @@
         android:layout_height="match_parent"
         android:padding="15dp"
         android:orientation="vertical"
-        android:background="@drawable/background_img1"
-        >
+        android:background="@drawable/background_img1">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,7 +23,6 @@
                 android:layout_marginTop="20sp"
                 android:id="@+id/iv"
                 />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,6 +35,7 @@
                 android:padding="10dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:drawableStart="@drawable/ic_action_person"
                 android:background="@drawable/custom_input" />
             <TextView
                 android:layout_width="match_parent"
@@ -49,13 +48,14 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/ic_baseline_email_24"
                 android:id="@+id/email"
                 android:textSize="20sp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone Number"
-                android:drawableStart="@android:drawable/ic_menu_call"
+                android:drawableStart="@drawable/ic_action_name"
                 android:gravity="center"
                 android:id="@+id/number"
                 android:textSize="20sp"
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Age: "
+                android:text="Age "
                 android:id="@+id/age"
                 android:gravity="center"
                 android:textColor="#F44336"
@@ -78,6 +78,7 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:layout_marginTop="15dp"
+                android:drawableStart="@drawable/age_24px"
                 android:background="@drawable/custom_input"/>
             <TextView
                 android:layout_width="match_parent"
@@ -91,12 +92,15 @@
                 android:padding="10dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                android:drawableStart="@drawable/ic_action_calender"
                 android:background="@drawable/custom_input"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Gender : "
+                android:text="Gender "
+                android:drawableStart="@drawable/gender_32px"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:gravity="center"
                 android:textColor="#000"
                 android:textSize="20sp"
@@ -114,13 +118,13 @@
                 android:padding="10dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:drawableStart="@android:drawable/ic_menu_mylocation"
+                android:drawableStart="@drawable/ic_action_location"
                 android:background="@drawable/custom_input"
                 android:textSize="20sp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Address: "
+                android:text="Address "
                 android:id="@+id/address"
                 android:gravity="center"
                 android:layout_marginTop="15dp"
@@ -129,6 +133,7 @@
                 android:textColor="#F44336"
                 android:paddingEnd="12dp"
                 android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/address_24px"
                 android:textSize="20sp"/>
             <TextView
                 android:layout_width="match_parent"
@@ -141,6 +146,7 @@
                 android:padding="10dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:drawableStart="@drawable/ic_action_blood"
                 android:background="@drawable/custom_input"
                 android:textSize="20sp"/>
             <TextView
