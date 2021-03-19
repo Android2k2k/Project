@@ -110,6 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String age = binding.age.getText().toString();
         final String image = "https://www.vhv.rs/dpng/d/433-4336634_thumb-image-android-user-icon-png-transparent-png.png";
         final String address = "no address added";
+
         final int rating=0;
         if(umail.isEmpty() | upass.isEmpty()){
             Toast.makeText(this, "Fill all the details", Toast.LENGTH_SHORT).show();
