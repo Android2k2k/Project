@@ -3,6 +3,7 @@ package com.example.rakthadaan;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
@@ -30,6 +31,7 @@ public class Slider extends AppCompatActivity {
     String tPermission = Manifest.permission.READ_PHONE_STATE;
     String cPermission = Manifest.permission.CALL_PHONE;
     int PERMISSION_ALL = 1;
+    SharedPreferences preferences;
 
 
     @Override
@@ -40,7 +42,7 @@ public class Slider extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_slider);
-
+        preferences = getSharedPreferences("dailog",MODE_PRIVATE);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (Button) findViewById(R.id.btn_next);
@@ -64,6 +66,9 @@ public class Slider extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("dlg","1");
+                editor.commit();
                 startActivity(new Intent(Slider.this, HomeActivity.class));
                 finish();
             }
@@ -78,6 +83,9 @@ public class Slider extends AppCompatActivity {
 
                     viewPager.setCurrentItem(current);
                 } else {
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("dlg","1");
+                    editor.commit();
                     startActivity(new Intent(Slider.this, HomeActivity.class));
                     finish();
                 }

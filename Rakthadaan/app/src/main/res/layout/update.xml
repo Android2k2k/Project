@@ -42,6 +42,7 @@
             android:layout_marginTop="15dp"
             android:padding="10dp"
             android:paddingStart="12dp"
+            android:textColor="#F44336"
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input"
             android:id="@+id/email"
@@ -79,6 +80,7 @@
             android:layout_height="wrap_content"
             android:hint="Pincode"
             android:id="@+id/pin"
+            android:textColor="#F44336"
             android:gravity="center"
             android:layout_marginTop="15dp"
             android:padding="10dp"
@@ -90,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="BloodGroup"
+            android:textColor="#F44336"
             android:id="@+id/blood"
             android:gravity="center"
             android:layout_marginTop="15dp"
@@ -103,6 +106,7 @@
             android:layout_height="wrap_content"
             android:text="Rating"
             android:gravity="center"
+            android:textColor="#F44336"
             android:textSize="20sp"
             android:layout_marginTop="15dp"/>
         <RatingBar

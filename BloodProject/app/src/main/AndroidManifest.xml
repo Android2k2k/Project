@@ -13,22 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
+
         <activity android:name=".PhoneAuthActivity" />
         <activity android:name=".ReceiverScheduleActivity" />
-=======
+
         <activity
             android:name=".PhoneAuthActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ReceiverScheduleActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
->>>>>>> 60cc58b (icons)
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_key" />
 
-<<<<<<< HEAD
         <activity android:name=".NearestHospitalsActivity" />
         <activity android:name=".RetrivalActivity" />
         <activity android:name=".DisplayActivity" />
@@ -38,7 +37,6 @@
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation" />
-=======
         <activity android:name=".DisplayActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".LoginActivity"
@@ -48,7 +46,7 @@
         <activity android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".NavigationActivity" />
->>>>>>> 60cc58b (icons)
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

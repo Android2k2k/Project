@@ -30,6 +30,8 @@
         android:hint="Enter your email id"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColor="#f30202"
+        android:textColorHint="#F30202"
         android:drawableStart="@drawable/ic_baseline_focus"
         android:drawablePadding="12dp"
         android:background="@drawable/custom_input"/>
@@ -42,7 +44,9 @@
         android:layout_marginTop="15sp"
         android:inputType="textPassword"
         android:paddingStart="12dp"
+        android:textColor="#f30202"
         android:paddingEnd="12dp"
+        android:textColorHint="#F30202"
         android:drawableStart="@drawable/ic_baseline_lock_24_focus"
         android:drawablePadding="12dp"
         android:background="@drawable/custom_input"

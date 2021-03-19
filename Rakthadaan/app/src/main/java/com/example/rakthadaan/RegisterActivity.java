@@ -124,13 +124,13 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         int id = rg.getCheckedRadioButtonId();
                         rb = findViewById(id);
-                        String gender = rb.toString();
+                        String gender = rb.getText().toString();
                         MyModel myModel = new MyModel(fname,lname,umail,mobile,age,date,gender,bloodgroup,image,address,rating);
                         //year+fnamefirstletterand lastletter+random(5digits)
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(100000);
                         databaseReference.child(uid).setValue(myModel);
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, NavigationActivity.class));
                         finish();
                     }
                     else{

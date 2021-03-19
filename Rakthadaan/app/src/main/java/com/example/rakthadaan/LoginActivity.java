@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser()!=null){
-            startActivity(new Intent(this,ProfileActivity.class));
+            startActivity(new Intent(this,NavigationActivity.class));
             finish();
         }
     }
