@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }, 4000);
-        ivTop = findViewById(R.id.iv_top);
         ivLogo = findViewById(R.id.iv_logo);
         ivBottom= findViewById(R.id.iv_bottom);
         textView = findViewById(R.id.text_view);
@@ -55,10 +54,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
                 ,WindowManager.LayoutParams.FLAG_FULLSCREEN)  ;
         //initialize top animation
-        Animation animation1 = AnimationUtils.loadAnimation(this
-                ,R.anim.top_wave);
+
         //start top animation
-        ivTop.setAnimation(animation1);
         //initialize object animator
         ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
                 ivLogo,

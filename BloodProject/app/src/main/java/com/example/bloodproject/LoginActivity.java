@@ -30,17 +30,16 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         auth = FirebaseAuth.getInstance();
-<<<<<<< HEAD
+
         if (auth.getCurrentUser()!=null){
             startActivity(new Intent(this,NavigationActivity.class));
             finish();
         }
-=======
+
 //        if (auth.getCurrentUser()!=null){
 //            startActivity(new Intent(this,NavigationActivity.class));
 //            finish();
 //        }
->>>>>>> 60cc58b (icons)
     }
 
     public void login(View view) {

@@ -162,11 +162,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
+                android:backgroundTint="#f30202"
+                android:progressBackgroundTint="#f30202"
+                android:fadeScrollbars="true"
                 android:rating="@integer/google_play_services_version"
                 android:id="@+id/rating"/>
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:text="Update"
                 android:onClick="update"
                 android:layout_marginTop="15dp"/>

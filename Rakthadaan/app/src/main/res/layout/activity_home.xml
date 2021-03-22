@@ -8,8 +8,7 @@
     android:orientation="vertical"
     tools:context=".HomeActivity"
     android:background="@drawable/background_img"
-    android:padding="25dp"
-    >
+    android:padding="25dp">
 
     <Button
         android:id="@+id/donar"
@@ -22,9 +21,7 @@
         android:backgroundTint="@color/white"
         android:textColor="#F44336"
         android:layout_marginTop="250sp"
-        android:textSize="20sp"
-
-         />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/receiver"

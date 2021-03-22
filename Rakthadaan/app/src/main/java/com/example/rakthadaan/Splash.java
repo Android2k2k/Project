@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.example.rakthadaan.fragments.LogoutFragment;
 
 public class Splash extends AppCompatActivity {
-    SharedPreferences preferences,preferences1;
+    SharedPreferences preferences,preferences1,preferences2;
     ImageView ivTop,ivLogo,ivBottom;
     TextView textView;
     CharSequence charSequence;
@@ -37,8 +37,10 @@ public class Splash extends AppCompatActivity {
         //fragmentTransaction.replace(R.id.frameLayout, new LogoutFragment()).commit();
         preferences=getSharedPreferences("dailog",MODE_PRIVATE);
         preferences1=getSharedPreferences("usertype",MODE_PRIVATE);
+        preferences2=getSharedPreferences("Data",MODE_PRIVATE);
         String dailog = preferences.getString("dlg",null);
-        String usertype = preferences.getString("type",null);
+        String usertype = preferences1.getString("type",null);
+        String profile = preferences2.getString("profile",null);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -59,13 +61,21 @@ public class Splash extends AppCompatActivity {
                         startActivity(new Intent(Splash.this,LoginActivity.class));
                         finish();
                     }
+                    else if(profile == null) {
+                        startActivity(new Intent(Splash.this,ProfileActivity.class));
+                        finish();
+                    }
+                    else if(profile.equals("1")) {
+                        startActivity(new Intent(Splash.this,NavigationActivity.class));
+                        finish();
+                    }
                     else {
                         startActivity(new Intent(Splash.this, HomeActivity.class));
                     }
                 }
             }
         }, 3000);
-        ivTop = findViewById(R.id.iv_top);
+
         ivLogo = findViewById(R.id.iv_logo);
         ivBottom= findViewById(R.id.iv_bottom);
         textView = findViewById(R.id.text_view);
@@ -73,11 +83,8 @@ public class Splash extends AppCompatActivity {
         //set fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
                 ,WindowManager.LayoutParams.FLAG_FULLSCREEN)  ;
-        //initialize top animation
-        Animation animation1 = AnimationUtils.loadAnimation(this
-                ,R.anim.top_wave);
+
         //start top animation
-        ivTop.setAnimation(animation1);
         //initialize object animator
         ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(
                 ivLogo,

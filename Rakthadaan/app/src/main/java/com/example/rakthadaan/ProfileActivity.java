@@ -54,12 +54,18 @@ public class ProfileActivity extends AppCompatActivity {
                     binding.age.setText(myModel.getAge());
                     binding.date.setText(myModel.getDate());
                     binding.gender.setText(myModel.getGender());
-                    binding.rating.setRating(myModel.getRating());
+                    binding.address.setText(myModel.getAddress());
+                    binding.pin.setText(myModel.pin);
+//                    binding.rating.setRating(myModel.getRating());
                     binding.blood.setText(myModel.getBloodgroup());
                     Glide.with(ProfileActivity.this)
                             .load(myModel.getImage())
                             .placeholder(R.drawable.ic_launcher_background)
                             .into(binding.iv);
+
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("profile","1");
+                    editor.commit();
                 }
             }
 
@@ -92,7 +98,8 @@ public class ProfileActivity extends AppCompatActivity {
         updateBinding.age.setText(myModel.getAge());
         updateBinding.pin.setText(myModel.getAddress());
         updateBinding.blood.setText(myModel.getBloodgroup());
-        updateBinding.rating.setRating(myModel.getRating());
+//        updateBinding.rating.setRating(myModel.getRating());
+
 
         builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
@@ -104,7 +111,7 @@ public class ProfileActivity extends AppCompatActivity {
                 map.put("age",updateBinding.age.getText().toString());
                 map.put("pin",updateBinding.pin.getText().toString());
                 map.put("rb",updateBinding.blood.getText().toString());
-                map.put("rating",updateBinding.rating.getRating());
+//                map.put("rating",updateBinding.rating.getRating());
                 reference.updateChildren(map);
             }
         });

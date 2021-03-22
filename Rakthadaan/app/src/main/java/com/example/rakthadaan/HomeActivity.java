@@ -3,9 +3,13 @@ package com.example.rakthadaan;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.rakthadaan.fragments.NearestbloodbanksFragment;
 
 public class HomeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -15,6 +19,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         sharedPreferences = getSharedPreferences("usertype",MODE_PRIVATE);
+//        setTitle("blood banks");
+//        getActionBar().setIcon(R.drawable.ic_baseline_local_hospital_24);
+//        getActionBar().setHomeButtonEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void receiver(View view) {
@@ -29,5 +43,9 @@ public class HomeActivity extends AppCompatActivity {
         editor.putString("type","donar");
         editor.commit();
         startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+    }
+
+    public void bloodbanks(MenuItem item) {
+        startActivity(new Intent(this,NavigationActivity.class));
     }
 }

@@ -8,12 +8,7 @@
     tools:context=".MainActivity">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/iv_top"
-        android:adjustViewBounds="true"
-        android:src="@drawable/top"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,8 +24,6 @@
             android:textColor="#F30E0E"
             android:textStyle="bold"
             android:layout_marginTop="350dp"/>
-
-        />
     </LinearLayout>
 
     <ImageView

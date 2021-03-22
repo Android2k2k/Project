@@ -10,26 +10,8 @@
     android:gravity="center">
 
     <Button
-        android:text="exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:onClick="exit"
-        android:textStyle="normal|bold"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="131dp"/>
-
-    <TextView
-        android:id="@+id/text_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="20sp"
-        />
-
-
+        android:text="Exit"
+        android:onClick="exit" />
 </LinearLayout>

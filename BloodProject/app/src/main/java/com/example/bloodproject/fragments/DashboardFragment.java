@@ -43,7 +43,6 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         setRetainInstance(true);
         View v = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        rv = v.findViewById(R.id.rv);
         pojos = new ArrayList<MyModel>();
         reference = FirebaseDatabase.getInstance().getReference("profile");
         reference.addValueEventListener(new ValueEventListener() {

@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.LogoutFragment"
-    android:background="@drawable/background_img">
+    android:background="@drawable/background_img"
+    android:orientation="horizontal"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/text_logout"

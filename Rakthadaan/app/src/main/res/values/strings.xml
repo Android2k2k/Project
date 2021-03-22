@@ -6,7 +6,7 @@
     <string name="nav_header_title">Rakthadaan</string>
     <string name="nav_header_subtitle">project18b0@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_profile">Profile</string>
 
     <string name="menu_profile">Profile</string>
     <string name="menu_requests">Requests</string>

@@ -1,8 +1,8 @@
 package com.example.rakthadaan;
 
 public class MyModel {
-    String fname,lname,mail,mobile,age,date,gender,bloodgroup,image,address;
-    int rating;
+    String fname,lname,mail,mobile,age,date,gender,bloodgroup,image,address,pin;
+//    int rating;
 
     public String getFname() {
         return fname;
@@ -44,14 +44,18 @@ public class MyModel {
         return address;
     }
 
-    public int getRating() {
-        return rating;
+    public String getPin() {
+        return pin;
     }
+//    public int getRating() {
+//        return rating;
+//    }
 
     public MyModel() {
     }
 
-    public MyModel(String fname, String lname, String mail, String mobile, String age, String date, String gender, String bloodgroup, String image, String address, int rating) {
+    public MyModel(String fname, String lname, String mail, String mobile, String age, String date, String gender, String bloodgroup,
+                   String image, String address,String pin, int rating) {
         this.fname = fname;
         this.lname = lname;
         this.mail = mail;
@@ -62,7 +66,8 @@ public class MyModel {
         this.bloodgroup = bloodgroup;
         this.image = image;
         this.address = address;
-        this.rating = rating;
+        this.pin = pin;
+//        this.rating = rating;
     }
 
 }

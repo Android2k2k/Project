@@ -28,8 +28,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HoldView> {
     Context ct;
     ArrayList<Pojo> list;
 
-    public MyAdapter(ArrayList<Pojo> list, RetrivalActivity retrivalActivity) {
-        ct = retrivalActivity;
+    public MyAdapter(ArrayList<Pojo> list) {
+
         this.list = list;
     }
 
