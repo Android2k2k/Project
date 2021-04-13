@@ -2,6 +2,8 @@ package com.example.rakthadaan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavAction;
 
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rakthadaan.fragments.RequestsFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -62,7 +65,11 @@ public class PhnAuth extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    startActivity(new Intent(PhnAuth.this, NavigationActivity.class));
+                   // startActivity(new Intent(PhnAuth.this, RequestsFragment.class));
+                    RequestsFragment fragment = new RequestsFragment();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, fragment);
+                    transaction.commit();
                     finish();
                 }else{
                     Toast.makeText(PhnAuth.this, "failed",
@@ -81,6 +88,10 @@ public class PhnAuth extends AppCompatActivity {
                 .setCallbacks(callbacks)
                 .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
+        RequestsFragment fragment = new RequestsFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_req, fragment);
+        transaction.commit();
     }
 
     public void verify(View view) {

@@ -3,6 +3,7 @@ package com.example.rakthadaan;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -12,10 +13,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -47,7 +48,8 @@ import java.util.Random;
 public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding binding;
     FusedLocationProviderClient fusedLocationProviderClient;
-    TextView tv;
+   // TextView tv;
+    String locdata;
     DatabaseReference databaseReference;
     Random random = new Random();
     Calendar calendar;
@@ -58,6 +60,8 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner spinner;
     FirebaseAuth auth;
     EditText pin;
+    String ages;
+    SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +72,9 @@ public class RegisterActivity extends AppCompatActivity {
         rg = findViewById(R.id.rg1);
         spinner = findViewById(R.id.spinner1);
         auth = FirebaseAuth.getInstance();
-        tv = findViewById(R.id.text);
+      //  tv = findViewById(R.id.text);
         pin = findViewById(R.id.pin);
+        preferences = getSharedPreferences("uid",MODE_PRIVATE);
         //Spinner for Blood Group
         final ArrayList<String> type = new ArrayList<>();
         type.add("A+");
@@ -109,12 +114,31 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month =month+1;
                         date = day+"/"+month+"/"+year;/**/
+                        getAge(year, month, day);
+
                         binding.date.setText(date);
                     }
                 },year,month,day);
                 datePickerDialog.show();
             }
         });
+    }
+    private String getAge(int year, int month, int day){
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+         ages = ageInt.toString();
+
+        return ages;
     }
     public void getdevicelocation(View view) {
         if (ActivityCompat.checkSelfPermission(RegisterActivity.this,
@@ -133,13 +157,6 @@ public class RegisterActivity extends AppCompatActivity {
                 PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         fusedLocationProviderClient.getLastLocation()
@@ -158,8 +175,8 @@ public class RegisterActivity extends AppCompatActivity {
                             String locality = addresses.get(0).getLocality();
                             String addressline = addresses.get(0).getAddressLine(0);
                             String postalcode = addresses.get(0).getPostalCode();
-                            tv.setText(latitude+"\n"+longitude+" \n"+countryname+"\n"
-                                    +locality+"\n"+addressline);
+                            locdata = latitude+"\n"+longitude+" \n"+countryname+"\n"
+                                    +locality+"\n"+addressline;
                             pin.setText(postalcode);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -175,9 +192,9 @@ public class RegisterActivity extends AppCompatActivity {
         final String lname = binding.lname.getText().toString();
         final String mobile = binding.mobile.getText().toString();
         final String bloodgroup = binding.spinner1.getSelectedItem().toString();
-        final String age = binding.age.getText().toString();
+       // final String age = binding.ages.getText().toString();
         final String image = "https://www.vhv.rs/dpng/d/433-4336634_thumb-image-android-user-icon-png-transparent-png.png";
-        final String address = binding.text.getText().toString();
+        final String address = locdata;
         final String pin = binding.pin.getText().toString();
         final int rating=0;
         if(umail.isEmpty() | upass.isEmpty()){
@@ -194,12 +211,16 @@ public class RegisterActivity extends AppCompatActivity {
                         int id = rg.getCheckedRadioButtonId();
                         rb = findViewById(id);
                         String gender = rb.getText().toString();
-                        MyModel myModel = new MyModel(fname,lname,umail,mobile,age,date,gender,bloodgroup,image,address,pin,rating);
+                        MyModel myModel = new MyModel(fname,lname,umail,mobile,ages,date,gender,bloodgroup,image,address,pin,rating);
                         //year+fnamefirstletterand lastletter+random(5digits)
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(100000);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("id",uid);
+                        editor.commit();
                         databaseReference.child(uid).setValue(myModel);
+
                         Toast.makeText(RegisterActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, ProfileActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, NavigationActivity.class));
                         finish();
                     }
                     else{

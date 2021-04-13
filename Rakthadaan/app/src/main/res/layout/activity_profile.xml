@@ -66,7 +66,7 @@
                 android:paddingEnd="12dp"
                 android:background="@drawable/custom_input" />
 
-            <TextView
+             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Age "
@@ -149,27 +149,9 @@
                 android:drawableStart="@drawable/ic_action_blood"
                 android:background="@drawable/custom_input"
                 android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:textColor="#F44336"
-                android:layout_height="wrap_content"
-                android:text="Rating"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:layout_marginTop="15dp"/>
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="#f30202"
-                android:progressBackgroundTint="#f30202"
-                android:fadeScrollbars="true"
-                android:rating="@integer/google_play_services_version"
-                android:id="@+id/rating"/>
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:text="Update"
                 android:onClick="update"
                 android:layout_marginTop="15dp"/>

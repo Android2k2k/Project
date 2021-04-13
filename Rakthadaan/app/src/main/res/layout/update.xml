@@ -51,7 +51,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone Number"
-            android:drawableStart="@android:drawable/stat_sys_vp_phone_call"
             android:gravity="center"
             android:id="@+id/number"
             android:textSize="20sp"
@@ -66,15 +65,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
-            android:id="@+id/age"
             android:gravity="center"
+            android:id="@+id/age"
+            android:textSize="20sp"
             android:layout_marginTop="15dp"
             android:textColor="#F44336"
-            android:textSize="20sp"
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:background="@drawable/custom_input"/>
+            android:background="@drawable/custom_input" />
+
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,20 +102,6 @@
             android:paddingEnd="12dp"
             android:background="@drawable/custom_input"
             android:textSize="20sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rating"
-            android:gravity="center"
-            android:textColor="#F44336"
-            android:textSize="20sp"
-            android:layout_marginTop="15dp"/>
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:id="@+id/rating"/>
     </LinearLayout>
 
 </LinearLayout>

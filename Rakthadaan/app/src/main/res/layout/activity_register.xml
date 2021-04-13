@@ -89,21 +89,7 @@
             android:drawablePadding="10dp"
             android:background="@drawable/custom_input"/>
 
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="Enter your Age"
-            android:textColor="#F30202"
-            android:textColorHint="#F30202"
-            android:padding="10dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:drawableStart="@drawable/age_24px"
-            android:drawablePadding="10dp"
-            android:background="@drawable/custom_input"/>
-        <EditText
+        <TextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,6 +98,7 @@
             android:textColor="#F30202"
             android:textColorHint="#F30202"
             android:padding="10dp"
+            android:textSize="19sp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:drawableStart="@drawable/ic_action_calender"
@@ -137,20 +124,24 @@
             android:textColor="#F30202"
             android:textColorHint="#F30202"
             android:id="@+id/rg1"
+            android:orientation="horizontal"
             android:layout_marginTop="5dp"
             >
             <RadioButton android:outlineSpotShadowColor="#f30202"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#F30202"
+                android:layout_weight="1"
                 android:textColorHint="#F30202"
                 android:id="@+id/rb1"
                 android:text="Male"/>
-            <RadioButton android:outlineSpotShadowColor="#f30202"
+
+            <RadioButton
                 android:id="@+id/rb2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:textColor="#F30202"
                 android:textColorHint="#F30202"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Female"></RadioButton>
         </RadioGroup>
@@ -164,6 +155,7 @@
             android:gravity="center"
             android:drawableStart="@drawable/ic_action_blood"
             android:text="Select your blood group" />
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -189,13 +181,13 @@
             android:id="@+id/location"
             android:backgroundTint="#F30202"
             android:background="@drawable/custom_button"/>
-        <TextView
+    <!--    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Textview"
             android:textSize="20sp"
             android:layout_marginTop="10sp"
-            android:id="@+id/text"/>
+            android:id="@+id/text"/>-->
 
         <EditText
             android:layout_width="match_parent"
@@ -208,7 +200,7 @@
             android:padding="10dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:drawableStart="@drawable/ic_baseline_lock_24_focus"
+            android:drawableStart="@drawable/ic_action_location"
             android:drawablePadding="10dp"
             android:background="@drawable/custom_input"/>
 
@@ -238,7 +230,6 @@
             android:textSize="15sp"
             android:backgroundTint="#F30202"
             android:background="@drawable/custom_button" />
-
 
     </LinearLayout>
 </ScrollView>

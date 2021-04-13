@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rakthadaan">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,38 +14,36 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/Theme.Rakthadaan">
-        <activity android:name=".ProfileActivity" />
-        <activity
-            android:name=".PhnAuth" />
-        <activity
-            android:name=".Slider" />
-        <activity
-            android:name=".LoginActivity" />
-        <activity
-            android:name=".RegisterActivity" />
+        <activity android:name=".RegisterBloodBank"></activity>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".ProfileActivity" >
+
+        </activity>
+        <activity android:name=".PhnAuth" >
+
+        </activity>
+        <activity android:name=".Slider" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light"/>
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation">
+            android:label="@string/title_activity_navigation" >
+
 
         </activity>
-        <activity
-            android:name=".Splash">
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.LOCATION" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

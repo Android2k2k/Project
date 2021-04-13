@@ -12,8 +12,6 @@ import com.example.rakthadaan.R;
 
 public class DashboardFragment extends Fragment {
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -47,9 +47,6 @@ public class MyModel {
     public String getPin() {
         return pin;
     }
-//    public int getRating() {
-//        return rating;
-//    }
 
     public MyModel() {
     }

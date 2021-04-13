@@ -32,13 +32,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void receiver(View view) {
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("type","receiver");
         editor.commit();
+
         startActivity(new Intent(HomeActivity.this, PhnAuth.class));
     }
 
     public void donar(View view) {
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("type","donar");
         editor.commit();
@@ -46,6 +49,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void bloodbanks(MenuItem item) {
-        startActivity(new Intent(this,NavigationActivity.class));
+
+
+        startActivity(new Intent(HomeActivity.this,RegisterBloodBank.class));
+
     }
 }
