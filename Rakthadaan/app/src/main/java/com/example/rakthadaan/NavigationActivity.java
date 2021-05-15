@@ -1,6 +1,7 @@
 package com.example.rakthadaan;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +43,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     FragmentManager manager;
     FragmentTransaction transaction;
     private AppBarConfiguration mAppBarConfiguration;
+    SharedPreferences preferences;
     //dialog flow
 
     @Override
@@ -59,7 +61,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         navigationView = findViewById(R.id.nav_view);
         auth = FirebaseAuth.getInstance();
         getSupportActionBar();
-
+        preferences = getSharedPreferences("uid",MODE_PRIVATE);
         ActionBarDrawerToggle drawerToggle =
                 new ActionBarDrawerToggle(this,
                         drawerLayout, toolbar,
@@ -82,15 +84,28 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         });
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+   /*     FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
+        String sid = preferences.getString("id",null);
+        Menu menu = navigationView.getMenu();
+        MenuItem target1 = menu.findItem(R.id.nav_requests);
+        MenuItem target2 = menu.findItem(R.id.nav_raisedrequests);
+        MenuItem target3 = menu.findItem(R.id.nav_nearestbloodbanks);
+        MenuItem target4= menu.findItem(R.id.nav_nearesthospitals);
+        if (sid==null){
+            target1.setEnabled(false);
+            target2.setEnabled(false);
+            target3.setEnabled(false);
+            target4.setEnabled(false);
+        }
     }
+
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -152,31 +167,26 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             }
             return false;
         }
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_dashboard,R.id.nav_requests,R.id.nav_raisedrequests,
-//                R.id.nav_nearestbloodbanks, R.id.nav_nearesthospitals, R.id.nav_aboutus,
-//                R.id.nav_feedback,R.id.nav_logout)
-//                .setDrawerLayout(drawer)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present
+        getMenuInflater().inflate(R.menu.navigation, menu);
+        return true;
+    }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present
-//        getMenuInflater().inflate(R.menu.navigation, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
 
     public void gotoprofile(MenuItem item) {
-        startActivity(new Intent(NavigationActivity.this,ProfileActivity.class));
+        String sid = preferences.getString("id", null);
+        if (sid == null) {
+            Snackbar.make(getWindow().getDecorView(),"Please Complete your registration",Snackbar.LENGTH_LONG).setAction("Register", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                }
+            }).show();
+        } else {
+            startActivity(new Intent(NavigationActivity.this, ProfileActivity.class));
+        }
     }
 }

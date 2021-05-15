@@ -41,6 +41,10 @@ public class PhnAuth extends AppCompatActivity {
         number = findViewById(R.id.number);
         otp= findViewById(R.id.otp);
         auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser()!=null){
+            startActivity(new Intent(PhnAuth.this,NavigationActivity.class));
+            finish();
+        }
         callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
@@ -65,11 +69,7 @@ public class PhnAuth extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                   // startActivity(new Intent(PhnAuth.this, RequestsFragment.class));
-                    RequestsFragment fragment = new RequestsFragment();
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, fragment);
-                    transaction.commit();
+                    startActivity(new Intent(PhnAuth.this,NavigationActivity.class));
                     finish();
                 }else{
                     Toast.makeText(PhnAuth.this, "failed",
@@ -88,10 +88,6 @@ public class PhnAuth extends AppCompatActivity {
                 .setCallbacks(callbacks)
                 .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
-        RequestsFragment fragment = new RequestsFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_req, fragment);
-        transaction.commit();
     }
 
     public void verify(View view) {

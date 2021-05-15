@@ -19,4 +19,8 @@
     <style name="Theme.Rakthadaan.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Rakthadaan.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="mySpinnerItemStyle" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:color">@color/red</item>
+    </style>
 </resources>

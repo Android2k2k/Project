@@ -145,30 +145,19 @@
                 android:layout_height="wrap_content"
                 android:text="Female"></RadioButton>
         </RadioGroup>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textColor="#F30202"
-            android:textColorHint="#F30202"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:drawableStart="@drawable/ic_action_blood"
-            android:text="Select your blood group" />
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:id="@+id/spinner1"
             android:layout_marginTop="5dp"
-            android:textColor="#F30202"
-            android:textColorHint="#F30202"
-            android:pointerIcon="arrow"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:backgroundTint="@color/black"
+            android:textAlignment="center"
             android:drawablePadding="10dp"
-            android:background="@drawable/custom_input" />
+            android:foregroundTint="@color/red"
+            android:background="@drawable/custom_input"
+            />
         <Button
             android:layout_width="250dp"
             android:layout_height="50dp"

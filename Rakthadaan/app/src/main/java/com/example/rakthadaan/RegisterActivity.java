@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .getFusedLocationProviderClient(this);
         rg = findViewById(R.id.rg1);
         spinner = findViewById(R.id.spinner1);
+
         auth = FirebaseAuth.getInstance();
       //  tv = findViewById(R.id.text);
         pin = findViewById(R.id.pin);
@@ -140,49 +141,41 @@ public class RegisterActivity extends AppCompatActivity {
 
         return ages;
     }
-    public void getdevicelocation(View view) {
-        if (ActivityCompat.checkSelfPermission(RegisterActivity.this,
-                Manifest.permission.ACCESS_FINE_LOCATION)==
-                PackageManager.PERMISSION_GRANTED){
-            getLocation();
-        }else {
-            ActivityCompat.requestPermissions(RegisterActivity.this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
-        }
-    }
 
-    private void getLocation() {
+    public void getdevicelocation(View view) {
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.
                 PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        fusedLocationProviderClient.getLastLocation()
-                .addOnCompleteListener(new OnCompleteListener<Location>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        Location loc= task.getResult();
-                        Geocoder geocoder=new Geocoder(RegisterActivity.this,
-                                Locale.getDefault());
-                        try {
-                            List<Address> addresses = geocoder.getFromLocation(loc
-                                    .getLatitude(),loc.getLongitude(),1);
-                            String latitude = String.valueOf(addresses.get(0).getLatitude());
-                            String longitude = String.valueOf(addresses.get(0).getLongitude());
-                            String countryname = addresses.get(0).getCountryName();
-                            String locality = addresses.get(0).getLocality();
-                            String addressline = addresses.get(0).getAddressLine(0);
-                            String postalcode = addresses.get(0).getPostalCode();
-                            locdata = latitude+"\n"+longitude+" \n"+countryname+"\n"
-                                    +locality+"\n"+addressline;
-                            pin.setText(postalcode);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+            ActivityCompat.requestPermissions(RegisterActivity.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+        }else {
+            fusedLocationProviderClient.getLastLocation()
+                    .addOnCompleteListener(new OnCompleteListener<Location>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Location> task) {
+                            Location loc = task.getResult();
+                            Geocoder geocoder = new Geocoder(RegisterActivity.this,
+                                    Locale.getDefault());
+                            try {
+                                List<Address> addresses = geocoder.getFromLocation(loc
+                                        .getLatitude(), loc.getLongitude(), 1);
+                                String latitude = String.valueOf(addresses.get(0).getLatitude());
+                                String longitude = String.valueOf(addresses.get(0).getLongitude());
+                                String countryname = addresses.get(0).getCountryName();
+                                String locality = addresses.get(0).getLocality();
+                                String addressline = addresses.get(0).getAddressLine(0);
+                                String postalcode = addresses.get(0).getPostalCode();
+                                locdata = latitude + "\n" + longitude + " \n" + countryname + "\n"
+                                        + locality + "\n" + addressline;
+                                pin.setText(postalcode);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 
     public void register(View view) {
@@ -192,11 +185,11 @@ public class RegisterActivity extends AppCompatActivity {
         final String lname = binding.lname.getText().toString();
         final String mobile = binding.mobile.getText().toString();
         final String bloodgroup = binding.spinner1.getSelectedItem().toString();
-       // final String age = binding.ages.getText().toString();
         final String image = "https://www.vhv.rs/dpng/d/433-4336634_thumb-image-android-user-icon-png-transparent-png.png";
         final String address = locdata;
         final String pin = binding.pin.getText().toString();
-        final int rating=0;
+        final String rating="0";
+        final String comments = "No Comments";
         if(umail.isEmpty() | upass.isEmpty()){
             Toast.makeText(this, "Fill all the details", Toast.LENGTH_SHORT).show();
         }
@@ -211,9 +204,9 @@ public class RegisterActivity extends AppCompatActivity {
                         int id = rg.getCheckedRadioButtonId();
                         rb = findViewById(id);
                         String gender = rb.getText().toString();
-                        MyModel myModel = new MyModel(fname,lname,umail,mobile,ages,date,gender,bloodgroup,image,address,pin,rating);
-                        //year+fnamefirstletterand lastletter+random(5digits)
                         String uid = String.valueOf(calendar.get(Calendar.YEAR)).substring(2)+fname.charAt(0)+fname.charAt(fname.length()-1)+random.nextInt(100000);
+                        MyModel myModel = new MyModel(fname,lname,umail,mobile,ages,date,gender,bloodgroup,image,address,pin,comments,uid,rating);
+                        //year+fnamefirstletterand lastletter+random(5digits)
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString("id",uid);
                         editor.commit();

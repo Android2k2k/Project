@@ -1,8 +1,50 @@
 package com.example.rakthadaan;
 
 public class MyModel {
-    String fname,lname,mail,mobile,age,date,gender,bloodgroup,image,address,pin;
-//    int rating;
+    String fname;
+    String lname;
+    String mail;
+    String mobile;
+    String age;
+    String date;
+    String gender;
+    String bloodgroup;
+    String image;
+    String address;
+    String pin;
+    String comments;
+    String rating;
+    String id;
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public MyModel(String fname, String lname, String mail, String mobile, String age, String date, String gender, String bloodgroup, String image, String address, String pin, String comments, String id, String rating) {
+        this.fname = fname;
+        this.lname = lname;
+        this.mail = mail;
+        this.mobile = mobile;
+        this.age = age;
+        this.date = date;
+        this.gender = gender;
+        this.bloodgroup = bloodgroup;
+        this.image = image;
+        this.address = address;
+        this.pin = pin;
+        this.comments = comments;
+        this.id = id;
+        this.rating = rating;
+    }
+
+
+    public String getComments() {
+        return comments;
+    }
 
     public String getFname() {
         return fname;
@@ -49,22 +91,6 @@ public class MyModel {
     }
 
     public MyModel() {
-    }
-
-    public MyModel(String fname, String lname, String mail, String mobile, String age, String date, String gender, String bloodgroup,
-                   String image, String address,String pin, int rating) {
-        this.fname = fname;
-        this.lname = lname;
-        this.mail = mail;
-        this.mobile = mobile;
-        this.age = age;
-        this.date = date;
-        this.gender = gender;
-        this.bloodgroup = bloodgroup;
-        this.image = image;
-        this.address = address;
-        this.pin = pin;
-//        this.rating = rating;
     }
 
 }
